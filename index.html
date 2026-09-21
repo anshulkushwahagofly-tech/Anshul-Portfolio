@@ -4,30 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anshul Kushwaha — Digital Specialist</title>
-    <meta name="description" content="WordPress Developer, SEO Expert, Google Ads Specialist and Social Media Marketer based in Jhansi.">
-    
-    <!-- Load GSAP and Lenis for smooth animations and scrolling -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
-
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Grainy Noise Background Overlay -->
     <div class="noise"></div>
-    <div class="gradient-bg"></div>
-
     <div class="cursor"></div>
 
     <nav class="navbar">
         <div class="nav-content">
-            <a href="#" class="logo">Anshul.</a>
+            <a href="#" class="logo">ANSHUL.K</a>
             <div class="nav-links">
                 <a href="#work">Work</a>
                 <a href="#about">About</a>
-                <a href="#contact" class="btn-contact">Let's Talk</a>
+                <a href="#contact">Contact</a>
             </div>
+            <a href="#contact" class="btn-nav">Hire Me ↗</a>
         </div>
     </nav>
 
@@ -36,125 +30,203 @@
             
             <!-- Hero Section -->
             <section class="hero" id="home">
-                <div class="hero-container">
-                    <div class="availability reveal-text">
-                        <span class="pulse-dot"></span> Available for new projects
+                <div class="container">
+                    <div class="hero-top-meta">
+                        <span>● Available for projects</span>
+                        <span>Jhansi, UP</span>
                     </div>
+                    
                     <h1 class="hero-title reveal-text">
-                        Crafting digital<br>
-                        <span class="text-gray">experiences that</span><br>
-                        drive growth.
+                        <span class="accent-text">Digital solutions</span> for<br>
+                        growing businesses that<br>
+                        drive real results
                     </h1>
-                    <p class="hero-subtitle reveal-text">I'm Anshul Kushwaha, a Digital Specialist based in Jhansi focusing on WordPress, SEO, and strategic marketing.</p>
                     
-                    <div class="hero-stats reveal-text">
-                        <div class="stat">
-                            <h3>100+</h3>
-                            <p>Projects Delivered</p>
-                        </div>
-                        <div class="stat">
-                            <h3>50+</h3>
-                            <p>Happy Clients</p>
-                        </div>
-                        <div class="stat">
-                            <h3>2+</h3>
-                            <p>Years Experience</p>
-                        </div>
+                    <div class="hero-bottom-meta reveal-text">
+                        <p>I'm Anshul Kushwaha, a WordPress developer & SEO expert helping local businesses build powerful online identities and generate quality leads.</p>
+                        <a href="#work" class="scroll-down">View work ↓</a>
                     </div>
                 </div>
             </section>
 
-            <!-- Work Section -->
-            <section class="work" id="work">
-                <div class="section-container">
-                    <h2 class="section-title reveal-text">Selected Work</h2>
-                    
-                    <div class="project-list">
-                        <!-- Project 1 -->
-                        <div class="project-card reveal-card">
-                            <div class="project-info">
-                                <span class="project-tag">WordPress • SEO</span>
-                                <h3 class="project-name">Healthcare Clinic</h3>
-                                <p class="project-desc">Complete medical platform with appointment booking, localized SEO, and a mobile-first design system.</p>
-                            </div>
-                            <div class="project-visual bg-1">
-                                <div class="visual-blob"></div>
-                            </div>
-                        </div>
-
-                        <!-- Project 2 -->
-                        <div class="project-card reveal-card">
-                            <div class="project-info">
-                                <span class="project-tag">E-Commerce • Ads</span>
-                                <h3 class="project-name">WooCommerce Store</h3>
-                                <p class="project-desc">Scalable online store featuring 200+ products, secure payment gateways, and targeted Google Shopping campaigns.</p>
-                            </div>
-                            <div class="project-visual bg-2">
-                                <div class="visual-blob"></div>
-                            </div>
-                        </div>
-
-                        <!-- Project 3 -->
-                        <div class="project-card reveal-card">
-                            <div class="project-info">
-                                <span class="project-tag">SEO • Growth</span>
-                                <h3 class="project-name">Real Estate SEO</h3>
-                                <p class="project-desc">Organic growth campaign achieving Page 1 rankings for 15+ high-intent keywords in 4 months.</p>
-                            </div>
-                            <div class="project-visual bg-3">
-                                <div class="visual-blob"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Expertise Section -->
-            <section class="expertise" id="about">
-                <div class="section-container">
-                    <div class="expertise-grid">
-                        <div class="expertise-text reveal-text">
-                            <h2 class="section-title">Expertise</h2>
-                            <p>I combine technical development with strategic marketing to build comprehensive digital solutions. My approach focuses on creating scalable, high-converting platforms that solve real business problems.</p>
-                        </div>
-                        <div class="expertise-list">
-                            <div class="expertise-item reveal-text">
-                                <h3>01 / Web Development</h3>
-                                <p>Custom WordPress & WooCommerce solutions optimized for speed and conversion.</p>
-                            </div>
-                            <div class="expertise-item reveal-text">
-                                <h3>02 / Search Engine Optimization</h3>
-                                <p>Technical, On-Page, and Local SEO strategies to dominate search results.</p>
-                            </div>
-                            <div class="expertise-item reveal-text">
-                                <h3>03 / Paid Advertising</h3>
-                                <p>High-ROI Google Ads campaigns targeted for lead generation and sales.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Contact Section -->
-            <section class="contact" id="contact">
-                <div class="section-container text-center">
-                    <h2 class="contact-title reveal-text">Let's build something<br>meaningful together.</h2>
-                    <div class="reveal-text">
-                        <a href="mailto:hello@example.com" class="btn-massive">Get in touch ↗</a>
+            <!-- Featured Project -->
+            <section class="featured-project" id="work">
+                <div class="container">
+                    <div class="section-header">
+                        <span>01 / Featured Project</span>
                     </div>
                     
-                    <div class="social-footer reveal-text">
-                        <a href="https://www.linkedin.com/in/anshul-kushwaha-jhansi/" target="_blank">LinkedIn</a>
-                        <a href="https://www.instagram.com/_anshul.kushwaha" target="_blank">Instagram</a>
-                        <a href="https://github.com/anshulkushwahagofly-tech" target="_blank">GitHub</a>
+                    <div class="featured-grid">
+                        <div class="featured-text reveal-text">
+                            <h2>Healthcare Clinic<br>& Booking Flow</h2>
+                            <span class="tag">WordPress Dev</span>
+                            <div class="insights">
+                                <h3>Key Insights</h3>
+                                <ul>
+                                    <li>Boosted local SEO ranking to Page 1 within 3 months.</li>
+                                    <li>Seamless appointment booking system.</li>
+                                    <li>Mobile-first responsive design tailored for patients.</li>
+                                </ul>
+                            </div>
+                            <a href="#" class="btn-black">Read Case Study</a>
+                        </div>
+                        <div class="featured-image reveal-card">
+                            <!-- Placeholder for laptop mockup -->
+                            <div class="mockup-placeholder">
+                                <div class="mockup-screen">Healthcare Project Preview</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
 
+            <!-- Project List -->
+            <section class="project-list-section">
+                <div class="container">
+                    <div class="section-header">
+                        <span>02 / All Projects</span>
+                    </div>
+                    
+                    <div class="list-container">
+                        <a href="#" class="list-item reveal-text">
+                            <div class="list-num">01</div>
+                            <div class="list-title">
+                                <h3>Real Estate SEO - Dominating Local Search</h3>
+                                <p>Ranked to Page 1 for 15+ keywords in 4 months, tripling organic leads.</p>
+                            </div>
+                            <div class="list-role">SEO Strategy</div>
+                            <div class="list-year">2026</div>
+                            <div class="list-arrow">↗</div>
+                        </a>
+                        
+                        <a href="#" class="list-item reveal-text">
+                            <div class="list-num">02</div>
+                            <div class="list-title">
+                                <h3>WooCommerce Store Builder</h3>
+                                <p>Full e-commerce setup with 200+ products and Google Shopping integration.</p>
+                            </div>
+                            <div class="list-role">Web Dev</div>
+                            <div class="list-year">2025</div>
+                            <div class="list-arrow">↗</div>
+                        </a>
+
+                        <a href="#" class="list-item reveal-text">
+                            <div class="list-num">03</div>
+                            <div class="list-title">
+                                <h3>Restaurant Brand Growth via Social Media</h3>
+                                <p>Grew Instagram presence from 500 to 12,000+ engaged followers.</p>
+                            </div>
+                            <div class="list-role">Social Media</div>
+                            <div class="list-year">2025</div>
+                            <div class="list-arrow">↗</div>
+                        </a>
+
+                        <a href="#" class="list-item reveal-text">
+                            <div class="list-num">04</div>
+                            <div class="list-title">
+                                <h3>Education Lead Gen Campaigns</h3>
+                                <p>500+ student leads per month for coaching institute at ₹45 CPL.</p>
+                            </div>
+                            <div class="list-role">Google Ads</div>
+                            <div class="list-year">2024</div>
+                            <div class="list-arrow">↗</div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Philosophy -->
+            <section class="philosophy" id="about">
+                <div class="container">
+                    <div class="section-header">
+                        <span>03 / Philosophy</span>
+                    </div>
+                    
+                    <h2 class="big-text reveal-text">
+                        Marketers who can handle<br>
+                        both ends - <span class="accent-text">strategy &</span><br>
+                        <span class="accent-text">execution</span>, are <span class="accent-text">rare</span>.
+                    </h2>
+                    
+                    <p class="philosophy-sub reveal-text">I work best where the stakes are real and the market is competitive. My job is to remove the friction, so the next conversion comes faster.</p>
+                    
+                    <div class="philosophy-grid">
+                        <div class="phil-item reveal-text">
+                            <div class="phil-num">01</div>
+                            <h3>I design for the business, not just the screen.</h3>
+                            <p>Every website and campaign is built with an ROI-first mindset. If it doesn't drive leads or sales, it's just decoration.</p>
+                        </div>
+                        <div class="phil-item reveal-text">
+                            <div class="phil-num">02</div>
+                            <h3>Systems first, screens second.</h3>
+                            <p>I build scalable digital foundations (WordPress + SEO + Ads) that work together seamlessly to capture your audience.</p>
+                        </div>
+                        <div class="phil-item reveal-text">
+                            <div class="phil-num">03</div>
+                            <h3>Details build the brand.</h3>
+                            <p>From site load speed to ad copy, every micro-interaction matters in building trust with your customers.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Client Logos -->
+            <section class="clients">
+                <div class="container">
+                    <div class="section-header">
+                        <span>04 / Selected Clients</span>
+                    </div>
+                    <div class="client-logos reveal-text">
+                        <span>CLINIC+</span>
+                        <span>REALESTATE PRO</span>
+                        <span>EDUTECH</span>
+                        <span>RESTOBAR</span>
+                        <span>CONSTRUCT.CO</span>
+                        <span>LOCAL MART</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA -->
+            <section class="cta-section" id="contact">
+                <div class="container">
+                    <div class="cta-box reveal-card">
+                        <div class="cta-content">
+                            <span>Let's talk</span>
+                            <h2>Have a <span class="accent-text">growing business</span> that<br>needs a digital push?</h2>
+                            <a href="mailto:hello@example.com" class="btn-accent">Get in touch →</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
             <footer>
-                <div class="footer-content">
-                    <p>&copy; 2026 Anshul Kushwaha</p>
-                    <p>Based in Jhansi, India</p>
+                <div class="container">
+                    <h2 class="footer-email">hello@anshulk.design</h2>
+                    <div class="footer-links">
+                        <div class="col">
+                            <span>Menu</span>
+                            <a href="#home">Home</a>
+                            <a href="#work">Work</a>
+                            <a href="#about">About</a>
+                        </div>
+                        <div class="col">
+                            <span>Socials</span>
+                            <a href="#">LinkedIn</a>
+                            <a href="#">Instagram</a>
+                            <a href="#">GitHub</a>
+                        </div>
+                        <div class="col">
+                            <span>Location</span>
+                            <p>Jhansi, Uttar Pradesh</p>
+                            <p>Available Worldwide</p>
+                        </div>
+                    </div>
+                    <div class="footer-bottom">
+                        <p>&copy; 2026 Anshul Kushwaha</p>
+                        <p>Designed & Developed with ♥</p>
+                    </div>
                 </div>
             </footer>
 
