@@ -1,117 +1,127 @@
-// Initialize Lenis for Smooth Scrolling (Framer-like feel)
+// Lenis Smooth Scroll
 const lenis = new Lenis({
     duration: 1.2,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    direction: 'vertical',
-    gestureDirection: 'vertical',
-    smooth: true,
-    mouseMultiplier: 1,
-    smoothTouch: false,
-    touchMultiplier: 2,
-    infinite: false,
-})
+    smooth: true
+});
 
-// Integrate Lenis with GSAP ScrollTrigger
-lenis.on('scroll', ScrollTrigger.update)
+lenis.on('scroll', ScrollTrigger.update);
+gsap.ticker.add((time) => { lenis.raf(time * 1000); });
+gsap.ticker.lagSmoothing(0);
 
-gsap.ticker.add((time)=>{
-  lenis.raf(time * 1000)
-})
-
-gsap.ticker.lagSmoothing(0)
-
-
-// Custom Cursor Logic
-const cursor = document.querySelector('.cursor');
-let mouseX = 0;
-let mouseY = 0;
-let cursorX = 0;
-let cursorY = 0;
+// Custom Cursor
+const cursor = document.querySelector('.custom-cursor');
+let mouseX = 0, mouseY = 0, cursorX = 0, cursorY = 0;
 
 document.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
 });
 
-// Smooth cursor follow
 gsap.ticker.add(() => {
-    cursorX += (mouseX - cursorX) * 0.2;
-    cursorY += (mouseY - cursorY) * 0.2;
+    cursorX += (mouseX - cursorX) * 0.15;
+    cursorY += (mouseY - cursorY) * 0.15;
     cursor.style.left = cursorX + 'px';
     cursor.style.top = cursorY + 'px';
 });
 
-// Cursor Hover Effects
-const interactables = document.querySelectorAll('a, button');
-interactables.forEach(el => {
+document.querySelectorAll('a, button, .card-3d').forEach(el => {
     el.addEventListener('mouseenter', () => {
-        gsap.to(cursor, { width: 40, height: 40, duration: 0.3, ease: "power2.out" });
+        gsap.to(cursor, { width: 50, height: 50, backgroundColor: '#39ff14', duration: 0.3 });
     });
     el.addEventListener('mouseleave', () => {
-        gsap.to(cursor, { width: 12, height: 12, duration: 0.3, ease: "power2.out" });
+        gsap.to(cursor, { width: 20, height: 20, backgroundColor: 'transparent', duration: 0.3 });
     });
 });
 
-const projectCards = document.querySelectorAll('.project-card');
-projectCards.forEach(card => {
-    card.addEventListener('mouseenter', () => {
-        gsap.to(cursor, { width: 80, height: 80, mixBlendMode: 'normal', backgroundColor: '#fff', duration: 0.3, ease: "power2.out" });
-        cursor.innerHTML = '<span style="color: black; font-size: 10px; font-weight: 600; text-transform: uppercase; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none;">View</span>';
-    });
-    card.addEventListener('mouseleave', () => {
-        gsap.to(cursor, { width: 12, height: 12, mixBlendMode: 'difference', backgroundColor: '#fff', duration: 0.3, ease: "power2.out" });
-        cursor.innerHTML = '';
-    });
-});
+// Horizontal Scroll via GSAP ScrollTrigger
+const horizontalSection = document.querySelector('.horizontal-scroll');
+const horizontalContainer = document.querySelector('.horizontal-container');
 
+gsap.to(horizontalContainer, {
+    x: () => -(horizontalContainer.scrollWidth - window.innerWidth) + "px",
+    ease: "none",
+    scrollTrigger: {
+        trigger: horizontalSection,
+        pin: true,
+        scrub: 1,
+        end: () => "+=" + horizontalContainer.scrollWidth
+    }
+});
 
 // GSAP Reveal Animations
-document.addEventListener("DOMContentLoaded", (event) => {
-    // Reveal text elements on scroll
-    const revealElements = document.querySelectorAll('.reveal-text');
-    revealElements.forEach((el) => {
-        gsap.fromTo(el, 
-            { y: 50, opacity: 0 },
-            { 
-                y: 0, 
-                opacity: 1, 
-                duration: 1,
-                ease: "power3.out",
-                scrollTrigger: {
-                    trigger: el,
-                    start: "top 85%",
-                    toggleActions: "play none none reverse"
-                }
-            }
-        );
-    });
-
-    // Reveal project cards on scroll
-    const revealCards = document.querySelectorAll('.reveal-card');
-    revealCards.forEach((card, index) => {
-        gsap.fromTo(card, 
-            { y: 80, opacity: 0 },
-            { 
-                y: 0, 
-                opacity: 1, 
-                duration: 1.2,
-                ease: "power3.out",
-                scrollTrigger: {
-                    trigger: card,
-                    start: "top 85%",
-                    toggleActions: "play none none reverse"
-                }
-            }
-        );
+gsap.utils.toArray('.line').forEach(line => {
+    gsap.from(line, {
+        y: 100,
+        opacity: 0,
+        duration: 1,
+        ease: 'power4.out',
+        stagger: 0.2,
+        scrollTrigger: {
+            trigger: '.hero-title',
+            start: "top 80%"
+        }
     });
 });
 
-// Navbar scroll effect
-const navbar = document.querySelector('.navbar');
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
+// Interactive Matrix Canvas
+const canvas = document.getElementById('matrix-canvas');
+const ctx = canvas.getContext('2d');
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const dots = [];
+const spacing = 30;
+
+for (let x = 0; x < canvas.width; x += spacing) {
+    for (let y = 0; y < canvas.height; y += spacing) {
+        dots.push({
+            x: x,
+            y: y,
+            baseX: x,
+            baseY: y,
+            size: Math.random() * 1.5 + 0.5
+        });
     }
+}
+
+function drawDots() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = 'rgba(57, 255, 20, 0.3)';
+    
+    dots.forEach(dot => {
+        const dx = mouseX - dot.x;
+        const dy = mouseY - dot.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        
+        let size = dot.size;
+        let opacity = 0.3;
+
+        if (distance < 150) {
+            size = dot.size + (150 - distance) * 0.03;
+            opacity = 0.8;
+            
+            // Subtle repel effect
+            dot.x = dot.baseX - (dx / distance) * 5;
+            dot.y = dot.baseY - (dy / distance) * 5;
+        } else {
+            dot.x = dot.baseX;
+            dot.y = dot.baseY;
+        }
+        
+        ctx.fillStyle = `rgba(57, 255, 20, ${opacity})`;
+        ctx.beginPath();
+        ctx.arc(dot.x, dot.y, size, 0, Math.PI * 2);
+        ctx.fill();
+    });
+    
+    requestAnimationFrame(drawDots);
+}
+
+drawDots();
+
+window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 });
